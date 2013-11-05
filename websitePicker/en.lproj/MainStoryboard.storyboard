@@ -1,18 +1,99 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <development version="4600" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--Website Picker View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="websitePickerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ns6-aX-naj">
+                                <rect key="frame" x="0.0" y="0.0" width="322" height="506"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="322" id="aDB-uF-mcj"/>
+                                    <constraint firstAttribute="height" constant="506" id="fUC-Pk-g9B"/>
+                                </constraints>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bVB-pY-FsB">
+                                <rect key="frame" x="150" y="163" width="20" height="20"/>
+                                <color key="color" red="0.29871203470000002" green="1" blue="0.23545746140000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xM-Y2-b5I">
+                                <rect key="frame" x="0.0" y="540" width="322" height="1"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QA5-rB-JUr">
+                                        <rect key="frame" x="0.0" y="52" width="320" height="216"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="216" id="kOU-pt-KbX"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="2" id="Oa0-eN-hth"/>
+                                            <outlet property="delegate" destination="2" id="XoJ-Rx-j8a"/>
+                                        </connections>
+                                    </pickerView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalHuggingPriority="120" translatesAutoresizingMaskIntoConstraints="NO" id="yIU-IE-Xda">
+                                        <rect key="frame" x="0.0" y="8" width="320" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="6eE-TM-Qsd"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem width="203" style="plain" systemItem="fixedSpace" id="2UZ-5o-S1r"/>
+                                            <barButtonItem title="HIDE PICKER" id="Ane-w8-M1i">
+                                                <connections>
+                                                    <action selector="hideBtn:" destination="2" id="f5p-0K-BuS"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="yIU-IE-Xda" firstAttribute="leading" secondItem="1xM-Y2-b5I" secondAttribute="leading" type="default" id="5Ef-tf-wtB"/>
+                                    <constraint firstItem="yIU-IE-Xda" firstAttribute="top" secondItem="1xM-Y2-b5I" secondAttribute="top" constant="8" id="EPB-Wp-009"/>
+                                    <constraint firstItem="yIU-IE-Xda" firstAttribute="trailing" secondItem="QA5-rB-JUr" secondAttribute="trailing" type="default" id="GKz-Ab-C8L"/>
+                                    <constraint firstItem="yIU-IE-Xda" firstAttribute="bottom" secondItem="QA5-rB-JUr" secondAttribute="top" type="default" id="tPT-Fj-AT7"/>
+                                    <constraint firstItem="QA5-rB-JUr" firstAttribute="leading" secondItem="1xM-Y2-b5I" secondAttribute="leading" type="default" id="zYl-SK-hcp"/>
+                                </constraints>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9e-mC-dsE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="SHOW PICKER" id="Tai-cD-reu">
+                                        <connections>
+                                            <action selector="showBtn:" destination="2" id="xz4-qu-1N7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x9e-mC-dsE" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="4II-aE-AUJ"/>
+                            <constraint firstItem="x9e-mC-dsE" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="4kn-Ib-uY0"/>
+                            <constraint firstItem="1xM-Y2-b5I" firstAttribute="top" secondItem="3" secondAttribute="top" constant="540" id="8t7-Fn-W2S"/>
+                            <constraint firstItem="bVB-pY-FsB" firstAttribute="top" secondItem="3" secondAttribute="top" constant="163" id="9L8-Hd-Lh9"/>
+                            <constraint firstItem="1xM-Y2-b5I" firstAttribute="leading" secondItem="x9e-mC-dsE" secondAttribute="leading" type="default" id="E4X-48-wqd"/>
+                            <constraint firstItem="x9e-mC-dsE" firstAttribute="leading" secondItem="Ns6-aX-naj" secondAttribute="leading" type="default" id="QlS-aM-xB9"/>
+                            <constraint firstItem="Ns6-aX-naj" firstAttribute="top" secondItem="x9e-mC-dsE" secondAttribute="top" type="default" id="SiV-Gh-9ZY"/>
+                            <constraint firstItem="1xM-Y2-b5I" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="WEZ-Ef-yAO"/>
+                            <constraint firstItem="x9e-mC-dsE" firstAttribute="centerX" secondItem="bVB-pY-FsB" secondAttribute="centerX" type="default" id="XNc-YU-yaa"/>
+                            <constraint firstItem="Ns6-aX-naj" firstAttribute="trailing" secondItem="1xM-Y2-b5I" secondAttribute="trailing" type="default" id="jhA-KG-3VX"/>
+                            <constraint firstAttribute="bottom" secondItem="1xM-Y2-b5I" secondAttribute="bottom" constant="7" id="lK2-f7-pjU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Picker" destination="QA5-rB-JUr" id="gaS-75-Pn1"/>
+                        <outlet property="Webview" destination="Ns6-aX-naj" id="DNk-Mo-JkU"/>
+                        <outlet property="activityind" destination="bVB-pY-FsB" id="Gqm-tu-7rX"/>
+                        <outlet property="pickerViewContainer" destination="1xM-Y2-b5I" id="mAC-Be-GFV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
